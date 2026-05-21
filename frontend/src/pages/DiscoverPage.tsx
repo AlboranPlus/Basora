@@ -1,12 +1,11 @@
 import { useWorks } from '@/hooks/useWorks'
 import { useBorrowings, useLentOut } from '@/hooks/useCirculation'
 import { BookCard } from '@/components/BookCard'
-import { StarRating } from '@/components/StarRating'
 import { useNavigate } from 'react-router-dom'
 
 export function DiscoverPage() {
   const navigate = useNavigate()
-  const { data: works, isLoading } = useWorks({ page: 0, size: 8 })
+  const { data: works, isLoading } = useWorks({ page: 0})
   const { data: borrowings } = useBorrowings()
   const { data: lentOut } = useLentOut()
 

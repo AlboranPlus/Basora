@@ -1,6 +1,5 @@
 import { useLentOut } from '@/hooks/useCirculation'
 import { BookCover } from '@/components/BookCover'
-import { LevelBadge } from '@/components/LevelBadge'
 
 function fmtDate(d: string) {
   return new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
