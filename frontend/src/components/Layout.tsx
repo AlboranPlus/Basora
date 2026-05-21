@@ -22,7 +22,7 @@ interface Props { children: React.ReactNode }
 export function Layout({ children }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
-  const { member, logout, loadMe } = useAuth()
+  const { member, loadMe } = useAuth()
   const [searchQ, setSearchQ] = useState('')
 
   useEffect(() => { if (!member) loadMe() }, [])
@@ -70,7 +70,7 @@ export function Layout({ children }: Props) {
         {member && (
           <div style={{ padding: '12px 16px', borderTop: '1px solid #657d4e' }}>
             <Link to="/profile" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#99ad7a', color: '#fff8ec', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 700, flexShrink: 0 }}>
+              <div style={{ width: 34, height: 34, borderRadius: '50%', background: '#99ad7a', color: '#fff8ec', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 600 }}>
                 {member.firstName[0]}{member.lastName[0]}
               </div>
               <div>
@@ -96,12 +96,12 @@ export function Layout({ children }: Props) {
               onBlur={(e) => (e.target.style.borderColor = '#dcccac')}
             />
           </form>
-          <Link to="/" style={{ background: '#546b41', color: '#fff8ec', border: 'none', borderRadius: 20, padding: '9px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none' }}>Browse</Link>
+          <Link to="/" style={{ background: '#546b41', color: '#fff8ec', border: 'none', borderRadius: 20, padding: '9px 18px', fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none' }}>Explore</Link>
           {member?.level && member.level >= 2 && (
-            <Link to="/lend" style={{ background: 'transparent', color: '#546b41', border: '1.5px solid #546b41', borderRadius: 20, padding: '8px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none' }}>Lend to Someone</Link>
+            <Link to="/lend" style={{ background: 'transparent', color: '#546b41', border: '1.5px solid #546b41', borderRadius: 20, padding: '8px 16px', fontSize: 13, fontWeight: 600, cursor: 'pointer', textDecoration: 'none' }}>Lend</Link>
           )}
           {member ? (
-            <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#546b41', color: '#fff8ec', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, cursor: 'pointer' }} onClick={() => navigate('/profile')}>
+            <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#546b41', color: '#fff8ec', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 600 }}>
               {member.firstName[0]}{member.lastName[0]}
             </div>
           ) : (
