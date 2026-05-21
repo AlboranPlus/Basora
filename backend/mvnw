@@ -1,0 +1,4 @@
+#!/bin/sh
+# Maven wrapper - run `mvn wrapper:wrapper` to generate the full binary,
+# or install Maven 3.9+ and run `mvn` directly.
+exec mvn "$@"
