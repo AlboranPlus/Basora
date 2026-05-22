@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 interface Props {
-  score: number
   max?: number
   size?: number
   interactive?: boolean
