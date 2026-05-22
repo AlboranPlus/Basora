@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
@@ -25,7 +26,7 @@ export function RegisterPage() {
     }
   }
 
-  const inputStyle = { width: '100%', padding: '10px 14px', border: '1.5px solid #dcccac', borderRadius: 10, fontSize: 14, background: '#fff8ec', outline: 'none', boxSizing: 'border-box' as const, marginBottom: 12 }
+  const inputStyle = { width: '100%', padding: '10px 14px', border: '1.5px solid #dcccac', borderRadius: 10, fontSize: 14, background: '#fff8ec', outline: 'none', boxSizing: 'border-box' as const }
 
   return (
     <div style={{ minHeight: '100vh', background: '#fff8ec', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Lato', sans-serif" }}>
