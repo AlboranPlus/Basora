@@ -1,15 +1,16 @@
 import { useState } from 'react'
 
 interface Props {
+  score?: number
   max?: number
   size?: number
   interactive?: boolean
   onRate?: (score: number) => void
 }
 
-export function StarRating({ max = 5, size = 14, interactive = false, onRate }: Props) {
+export function StarRating({ score = 0, max = 5, size = 14, interactive = false, onRate }: Props) {
   const [hover, setHover] = useState(0)
-  const effective = interactive ? hover : 0
+  const effective = interactive ? hover : score
 
   return (
     <span style={{ display: 'inline-flex', gap: 2 }}>
