@@ -8,9 +8,9 @@ interface Props {
   onRate?: (score: number) => void
 }
 
-export function StarRating({ score, max = 5, size = 14, interactive = false, onRate }: Props) {
+export function StarRating({ max = 5, size = 14, interactive = false, onRate }: Props) {
   const [hover, setHover] = useState(0)
-  const effective = interactive ? (hover || score) : score
+  const effective = interactive ? hover : 0
 
   return (
     <span style={{ display: 'inline-flex', gap: 2 }}>
