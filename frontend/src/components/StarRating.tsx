@@ -15,13 +15,16 @@ export function StarRating(props: Props) {
     ? (hover || props.score)
     : props.score
 
+  const max = props.max ?? 5
+  const size = props.size ?? 14
+
   return (
     <span style={{ display: 'inline-flex', gap: 2 }}>
-      {Array.from({ length: props.max ?? 5 }, (_, i) => (
+      {Array.from({ length: max }, (_, i) => (
         <span
           key={i}
           style={{
-            fontSize: props.size ?? 14,
+            fontSize: size,
             color: effective > i ? '#e6a817' : '#dcccac',
             cursor: props.interactive ? 'pointer' : 'default',
             lineHeight: 1
