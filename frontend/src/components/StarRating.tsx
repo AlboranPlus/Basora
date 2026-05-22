@@ -1,26 +1,34 @@
 import { useState } from 'react'
 
 interface Props {
-  score?: number
+  score: number
   max?: number
   size?: number
   interactive?: boolean
   onRate?: (score: number) => void
 }
 
-export function StarRating({ max = 5, size = 14, interactive = false, onRate, score = 0 }: Props) {
+export function StarRating(props: Props) {
   const [hover, setHover] = useState(0)
-  const effective = interactive ? hover : score
+
+  const effective = props.interactive
+    ? (hover || props.score)
+    : props.score
 
   return (
     <span style={{ display: 'inline-flex', gap: 2 }}>
-      {Array.from({ length: max }, (_, i) => (
+      {Array.from({ length: props.max ?? 5 }, (_, i) => (
         <span
           key={i}
-          style={{ fontSize: size, color: effective > i ? '#e6a817' : '#dcccac', cursor: interactive ? 'pointer' : 'default', lineHeight: 1 }}
-          onClick={() => interactive && onRate?.(i + 1)}
-          onMouseEnter={() => interactive && setHover(i + 1)}
-          onMouseLeave={() => interactive && setHover(0)}
+          style={{
+            fontSize: props.size ?? 14,
+            color: effective > i ? '#e6a817' : '#dcccac',
+            cursor: props.interactive ? 'pointer' : 'default',
+            lineHeight: 1
+          }}
+          onClick={() => props.interactive && props.onRate?.(i + 1)}
+          onMouseEnter={() => props.interactive && setHover(i + 1)}
+          onMouseLeave={() => props.interactive && setHover(0)}
         >
           {effective > i ? '★' : '☆'}
         </span>
